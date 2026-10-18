@@ -207,14 +207,23 @@ def get_recent_activity():
     }
 
 
-# Montage des fichiers statiques pour le portail
-if STATIC_DIR.exists():
-    @app.get("/", response_class=HTMLResponse)
-    def serve_index():
-        index_file = STATIC_DIR / "index.html"
-        if index_file.exists():
-            with open(index_file, "r", encoding="utf-8") as f:
-                return HTMLResponse(content=f.read())
-        return HTMLResponse("<h1>Portail AppHub</h1><p>Static index.html manquant.</p>")
+@app.get("/", response_class=HTMLResponse)
+def serve_index():
+    candidates = [
+        STATIC_DIR / "index.html",
+        BASE_DIR / "index.html",
+        BASE_DIR / "public" / "index.html",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            try:
+                with open(candidate, "r", encoding="utf-8") as f:
+                    return HTMLResponse(content=f.read())
+            except Exception:
+                pass
+    return HTMLResponse("<h1>Portail AppHub</h1><p>Index.html manquant.</p>")
 
+
+# Montage des fichiers statiques si le répertoire existe
+if STATIC_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
