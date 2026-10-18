@@ -225,5 +225,55 @@ DEFAULT_APPS_CATALOG: List[Dict[str, Any]] = [
         "url": "https://github.com/TheBigBad31/ElvishScout/commit/12b757ca6f7f1593a0c434379434e60fc2cd7954"
       }
     ]
+  },
+  {
+    "id": "vitaltrack",
+    "name": "VitalTrack",
+    "tagline": "PWA Mobile-First de suivi poids, nutrition photo IA & objets connectés",
+    "description": "Application web PWA de suivi quotidien du poids, d'estimation calorique et macronutritionnelle par photo d'assiette (Gemini Vision + OpenFoodFacts) et de synchronisation avec balances connectées (Withings, Garmin, Apple/Google) et bagues/trackers de santé (Oura Ring, Health Connect).",
+    "category": "Santé & Nutrition",
+    "icon": "activity",
+    "color": "emerald",
+    "vercel_url": "https://vital-track.vercel.app",
+    "github_url": "https://github.com/TheBigBad31/VitalTrack",
+    "is_private": True,
+    "language": "Python",
+    "stack": ["FastAPI", "Python 3.11", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "Withings API", "Oura API"],
+    "features": [
+      "Estimation calorique et macronutritionnelle par photo d'assiette via Gemini Vision & base locale enrichie",
+      "Curseur de portion interactif (0.5x à 2.0x) avec mise à l'échelle instantanée des nutriments",
+      "5 Vues de dashboards dynamiques : Synthèse journalière, Poids & Composition, Repas 7j, Activité & Bague, Hub IoT",
+      "Connecteurs modulaires pour balances connectées (Withings, Garmin, Xiaomi) et bagues (Oura Ring Gen3)",
+      "Architecture PWA responsive Mobile-First déployée sur Vercel Serverless avec fallback de données garanti"
+    ],
+    "latest_summary": "Mise en place du pipeline CI/CD GitHub Actions, compatibilité Vercel Serverless et référencement AppHub.",
+    "last_updated": "2026-10-18T17:00:21Z",
+    "commits": [
+      {
+        "sha": "f73ea85",
+        "full_sha": "f73ea85f9bd9b78e7e04de85160e201c25fc57a5",
+        "message": "feat(ci-cd): Workflows GitHub Actions, endpoints Vercel Serverless et documentation 1-clic (BALI-16)",
+        "author": "TheBigBad31",
+        "date": "2026-10-18T17:00:21Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/f73ea85f9bd9b78e7e04de85160e201c25fc57a5"
+      },
+      {
+        "sha": "6864eb7",
+        "full_sha": "6864eb774e499c5e6a0e1bb90b49ca2587201559",
+        "message": "feat(stage-4): profils metaboliques 1-clic et guide comparatif balances connectees",
+        "author": "TheBigBad31",
+        "date": "2026-10-18T14:50:00Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/6864eb774e499c5e6a0e1bb90b49ca2587201559"
+      },
+      {
+        "sha": "886dcc7",
+        "full_sha": "886dcc7e656e7cad826d326fca2720476960b0db",
+        "message": "feat(pwa): Stage 3 - Application PWA Mobile-First, Dashboards multi-metriques et compatibilite Vercel Serverless",
+        "author": "TheBigBad31",
+        "date": "2026-10-18T14:20:00Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/886dcc7e656e7cad826d326fca2720476960b0db"
+      }
+    ]
   }
 ]
+
