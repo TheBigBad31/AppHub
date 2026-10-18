@@ -223,7 +223,7 @@
     "id": "vitaltrack",
     "name": "VitalTrack",
     "tagline": "PWA Mobile-First de suivi poids, nutrition photo IA & objets connectés",
-    "description": "Application web PWA de suivi quotidien du poids, d'estimation calorique et macronutritionnelle par photo d'assiette (Gemini Vision + OpenFoodFacts) et de synchronisation avec balances connectées (Withings, Garmin, Apple/Google) et bagues/trackers de santé (Oura Ring, Health Connect).",
+    "description": "Application web PWA de suivi quotidien du poids (moyenne glissante 7j), bilans énergétiques BMR/TDEE, estimation calorique et macronutritionnelle par photo d'assiette (Gemini Vision + OpenFoodFacts), profil persistant et synchronisation bague RingConn Gen 3, Google Health Connect, Oura et balances Withings.",
     "category": "Santé & Nutrition",
     "icon": "activity",
     "color": "emerald",
@@ -231,17 +231,33 @@
     "github_url": "https://github.com/TheBigBad31/VitalTrack",
     "is_private": true,
     "language": "Python",
-    "stack": ["FastAPI", "Python 3.11", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "Withings API", "Oura API"],
+    "stack": ["FastAPI", "Python 3.11", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "RingConn Gen 3", "Google Health Connect", "Withings API", "Oura API"],
     "features": [
-      "Estimation calorique et macronutritionnelle par photo d'assiette via Gemini Vision & base locale enrichie",
-      "Curseur de portion interactif (0.5x à 2.0x) avec mise à l'échelle instantanée des nutriments",
-      "5 Vues de dashboards dynamiques : Synthèse journalière, Poids & Composition, Repas 7j, Activité & Bague, Hub IoT",
-      "Connecteurs modulaires pour balances connectées (Withings, Garmin, Xiaomi) et bagues (Oura Ring Gen3)",
+      "Suivi quotidien du poids (moyenne glissante 7j) & bilans énergétiques BMR/TDEE",
+      "Estimateur de calories & macros par photo d'assiette (Gemini Vision + OpenFoodFacts)",
+      "Profil complet persistant (sauvegarde/restauration JSON 1-clic + auto-sync navigateur)",
+      "Assistant de connexion & webhooks pour bague RingConn Gen 3, Google Health Connect, Oura Ring et balances Withings",
       "Architecture PWA responsive Mobile-First déployée sur Vercel Serverless avec fallback de données garanti"
     ],
-    "latest_summary": "Mise en place du pipeline CI/CD GitHub Actions, compatibilité Vercel Serverless et référencement AppHub.",
-    "last_updated": "2026-10-18T17:00:21Z",
+    "latest_summary": "Stage 6 : Profil complet persistant, export/import JSON, intégration native RingConn Gen 3, Google Health Connect et webhooks santé universels.",
+    "last_updated": "2026-10-18T21:21:05Z",
     "commits": [
+      {
+        "sha": "0cf2b14",
+        "full_sha": "0cf2b14313f6c790463ad6d119f270f05c2360f5",
+        "message": "feat(stage-6): profil persistant, export/import JSON, centre d'integration RingConn Gen 3 et webhooks de sante",
+        "author": "TheBigBad31",
+        "date": "2026-10-18T21:21:05Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/0cf2b14313f6c790463ad6d119f270f05c2360f5"
+      },
+      {
+        "sha": "f79f1fd",
+        "full_sha": "f79f1fdcdfff9b2339736ff8899fe0326ec75fa1",
+        "message": "feat(devices): ajout bague RingConn Gen 3, profil utilisateur et assistant de connexion (BALI-16)",
+        "author": "TheBigBad31",
+        "date": "2026-10-18T19:12:52Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/f79f1fdcdfff9b2339736ff8899fe0326ec75fa1"
+      },
       {
         "sha": "f73ea85",
         "full_sha": "f73ea85f9bd9b78e7e04de85160e201c25fc57a5",
@@ -249,24 +265,9 @@
         "author": "TheBigBad31",
         "date": "2026-10-18T17:00:21Z",
         "url": "https://github.com/TheBigBad31/VitalTrack/commit/f73ea85f9bd9b78e7e04de85160e201c25fc57a5"
-      },
-      {
-        "sha": "6864eb7",
-        "full_sha": "6864eb774e499c5e6a0e1bb90b49ca2587201559",
-        "message": "feat(stage-4): profils metaboliques 1-clic et guide comparatif balances connectees",
-        "author": "TheBigBad31",
-        "date": "2026-10-18T14:50:00Z",
-        "url": "https://github.com/TheBigBad31/VitalTrack/commit/6864eb774e499c5e6a0e1bb90b49ca2587201559"
-      },
-      {
-        "sha": "886dcc7",
-        "full_sha": "886dcc7e656e7cad826d326fca2720476960b0db",
-        "message": "feat(pwa): Stage 3 - Application PWA Mobile-First, Dashboards multi-metriques et compatibilite Vercel Serverless",
-        "author": "TheBigBad31",
-        "date": "2026-10-18T14:20:00Z",
-        "url": "https://github.com/TheBigBad31/VitalTrack/commit/886dcc7e656e7cad826d326fca2720476960b0db"
       }
     ]
   }
 ]
+
 
