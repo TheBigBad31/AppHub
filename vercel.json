@@ -1,17 +1,18 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "data/**,static/**,src/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "api/index.py"
-    },
-    {
-      "source": "/static/(.*)",
-      "destination": "/static/$1"
+      "destination": "/api/index.py"
     },
     {
       "source": "/(.*)",
-      "destination": "/static/index.html"
+      "destination": "/api/index.py"
     }
   ]
 }

@@ -106,7 +106,16 @@ def sync_catalog(output_path: Path = APPS_DATA_FILE) -> List[Dict[str, Any]]:
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(updated_apps, f, indent=2, ensure_ascii=False)
 
-    print(f"Catalogue synchronisé avec succès ({len(updated_apps)} applications) dans {output_path}")
+    # Met également à jour src/catalog_data.py pour garantir la parité du fallback en mémoire
+    catalog_py_path = Path(__file__).resolve().parent / "catalog_data.py"
+    try:
+        content_py = '"""\nCatalogue statique par défaut des applications pour AppHub.\nSert de source de données infaillible et de fallback en mémoire\ndans les environnements serverless Vercel lorsque le fichier apps.json n\'est pas bundlé.\n"""\nfrom typing import List, Dict, Any\n\nDEFAULT_APPS_CATALOG: List[Dict[str, Any]] = ' + json.dumps(updated_apps, indent=2, ensure_ascii=False) + '\n'
+        with open(catalog_py_path, "w", encoding="utf-8") as f:
+            f.write(content_py)
+    except Exception as e:
+        print(f"Avertissement: Impossible d'écrire {catalog_py_path}: {e}")
+
+    print(f"Catalogue synchronisé avec succès ({len(updated_apps)} applications) dans {output_path} et {catalog_py_path}")
     return updated_apps
 
 

@@ -34,16 +34,25 @@ app.add_middleware(
 )
 
 
+from src.catalog_data import DEFAULT_APPS_CATALOG
+
+
 def load_apps_catalog() -> List[Dict[str, Any]]:
-    """Charge le catalogue d'applications depuis data/apps.json."""
-    if not DATA_FILE.exists():
-        return []
-    try:
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Erreur lecture apps.json: {e}")
-        return []
+    """
+    Charge le catalogue d'applications depuis data/apps.json s'il existe et est valide.
+    Bascule automatiquement sur DEFAULT_APPS_CATALOG (en mémoire) dans les environnements
+    serverless isolés comme Vercel Lambda.
+    """
+    if DATA_FILE.exists():
+        try:
+            with open(DATA_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if data and isinstance(data, list) and len(data) > 0:
+                    return data
+        except Exception as e:
+            print(f"Avertissement: Impossible de lire apps.json ({e}), utilisation du catalogue en mémoire.")
+
+    return [dict(app) for app in DEFAULT_APPS_CATALOG]
 
 
 def ping_url(url: str, timeout: float = 6.0) -> Dict[str, Any]:

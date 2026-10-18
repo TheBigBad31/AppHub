@@ -82,3 +82,16 @@ def test_ping_url_invalid():
     res = ping_url("http://invalid-domain-name-that-does-not-exist.xyz", timeout=1.0)
     assert res["online"] is False
     assert res["status_code"] == 0
+
+
+def test_fallback_when_apps_json_missing(monkeypatch, tmp_path):
+    import src.app as app_module
+    fake_data_file = tmp_path / "non_existent_apps.json"
+    monkeypatch.setattr(app_module, "DATA_FILE", fake_data_file)
+    apps = app_module.load_apps_catalog()
+    assert len(apps) == 4
+    app_ids = [a["id"] for a in apps]
+    assert "cryptoplatform" in app_ids
+    assert "cognistim" in app_ids
+    assert "galaxydefenders" in app_ids
+    assert "elvishscout" in app_ids
