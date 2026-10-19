@@ -10,10 +10,22 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+
+from src.auth import (
+    get_auth_config,
+    save_auth_config,
+    authenticate_google_user,
+    get_current_user_from_token,
+    revoke_session,
+    GoogleAuthPayload,
+    AuthConfigUpdate,
+    get_user_profile,
+    save_user_profile,
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE_DIR / "data" / "apps.json"
@@ -94,6 +106,98 @@ def ping_url(url: str, timeout: float = 6.0) -> Dict[str, Any]:
 def health():
     """Vérification de santé de l'API AppHub."""
     return {"status": "ok", "service": "AppHub", "timestamp": time.time()}
+
+
+@app.get("/api/auth/config")
+def get_auth_configuration():
+    """
+    Retourne la configuration Google OAuth (google_client_id, état SSO, compte suggéré).
+    """
+    return get_auth_config()
+
+
+@app.put("/api/auth/config")
+def update_auth_configuration(payload: AuthConfigUpdate):
+    """
+    Permet de configurer le Google Client ID et l'état SSO depuis l'interface ou les paramètres.
+    """
+    return save_auth_config(payload.google_client_id, payload.sso_enabled)
+
+
+@app.post("/api/auth/google")
+def login_with_google(payload: GoogleAuthPayload):
+    """
+    Authentifie l'utilisateur via Google Identity Services (ID Token) ou Quick-Sign.
+    Crée une session et retourne l'utilisateur et son token.
+    """
+    session = authenticate_google_user(payload)
+    return {
+        "status": "success",
+        "message": "Connexion Google réussie",
+        "user": {
+            "email": session["email"],
+            "name": session["name"],
+            "picture": session["picture"],
+            "sub": session["sub"],
+            "pinned_apps": session.get("pinned_apps", []),
+            "theme": session.get("theme", "dark")
+        },
+        "session_token": session["session_token"]
+    }
+
+
+@app.get("/api/auth/me")
+def get_authenticated_user(authorization: Optional[str] = Header(None)):
+    """
+    Retourne l'utilisateur Google connecté et ses préférences de portail.
+    """
+    session = get_current_user_from_token(authorization)
+    if not session:
+        return {"authenticated": False, "user": None}
+
+    return {
+        "authenticated": True,
+        "user": {
+            "email": session["email"],
+            "name": session["name"],
+            "picture": session["picture"],
+            "sub": session["sub"],
+            "pinned_apps": session.get("pinned_apps", []),
+            "theme": session.get("theme", "dark"),
+            "authenticated_via": session.get("authenticated_via", "google")
+        }
+    }
+
+
+@app.post("/api/auth/logout")
+def logout_user(authorization: Optional[str] = Header(None)):
+    """
+    Déconnexion de la session active.
+    """
+    success = revoke_session(authorization)
+    return {"status": "ok", "logged_out": True}
+
+
+@app.put("/api/auth/preferences")
+def update_user_preferences(payload: GoogleAuthPayload, authorization: Optional[str] = Header(None)):
+    """
+    Met à jour les préférences de l'utilisateur connecté (applications favorites/épinglées, thème).
+    """
+    session = get_current_user_from_token(authorization)
+    email = session["email"] if session else (payload.email or "sebastienlamoliate@gmail.com")
+    
+    profile = get_user_profile(email)
+    if payload.pinned_apps is not None:
+        profile["pinned_apps"] = payload.pinned_apps
+    if payload.theme is not None:
+        profile["theme"] = payload.theme
+    save_user_profile(profile)
+
+    return {
+        "status": "success",
+        "pinned_apps": profile.get("pinned_apps", []),
+        "theme": profile.get("theme", "dark")
+    }
 
 
 @app.get("/api/apps")

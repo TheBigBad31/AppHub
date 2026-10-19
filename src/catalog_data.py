@@ -18,8 +18,9 @@ DEFAULT_APPS_CATALOG: List[Dict[str, Any]] = [
     "github_url": "https://github.com/TheBigBad31/CryptoPlatform",
     "is_private": True,
     "language": "Python",
-    "stack": ["FastAPI", "Python 3.11", "Kraken API", "Nexo API", "WhatsApp API", "Chart.js", "Tailwind CSS"],
+    "stack": ["FastAPI", "Python 3.11", "Google Sign-In SSO", "Kraken API", "Nexo API", "WhatsApp API", "Chart.js", "Tailwind CSS"],
     "features": [
+      "Authentification unifiée Google Sign-In & SSO depuis AppHub",
       "Connecteurs modulaires CEX & CeFi (Kraken read-only, Nexo Pro, mode démo sans clés)",
       "Moteur d'indicateurs techniques (RSI de Wilder, Moyennes mobiles SMA/EMA, variations 24h/7j)",
       "Alertes instantanées WhatsApp (CallMeBot, Meta Cloud API, Twilio) avec règles anti-spam",
@@ -238,8 +239,9 @@ DEFAULT_APPS_CATALOG: List[Dict[str, Any]] = [
     "github_url": "https://github.com/TheBigBad31/VitalTrack",
     "is_private": True,
     "language": "Python",
-    "stack": ["FastAPI", "Python 3.11", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "RingConn Gen 3", "Google Health Connect", "Withings API", "Oura API"],
+    "stack": ["FastAPI", "Python 3.11", "Google Sign-In SSO", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "RingConn Gen 3", "Google Health Connect", "Withings API", "Oura API"],
     "features": [
+      "Authentification unifiée Google Sign-In & SSO depuis AppHub",
       "Suivi quotidien du poids (moyenne glissante 7j) & bilans énergétiques BMR/TDEE",
       "Estimateur de calories & macros par photo d'assiette (Gemini Vision + OpenFoodFacts)",
       "Profil complet persistant (sauvegarde/restauration JSON 1-clic + auto-sync navigateur)",
