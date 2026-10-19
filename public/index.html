@@ -169,6 +169,9 @@
           <button onclick="setCategoryFilter('Santé & Cognition')" data-cat="Santé & Cognition" class="cat-pill px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">
             Santé & Cognition
           </button>
+          <button onclick="setCategoryFilter('Santé & Nutrition')" data-cat="Santé & Nutrition" class="cat-pill px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">
+            Santé & Nutrition
+          </button>
           <button onclick="setCategoryFilter('Jeux & Arcade')" data-cat="Jeux & Arcade" class="cat-pill px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition whitespace-nowrap">
             Jeux & Arcade
           </button>
@@ -518,6 +521,55 @@
             "url": "https://github.com/TheBigBad31/ElvishScout/commit/12b757ca6f7f1593a0c434379434e60fc2cd7954"
           }
         ]
+      },
+      {
+        "id": "vitaltrack",
+        "name": "VitalTrack",
+        "tagline": "PWA Mobile-First de suivi poids, nutrition photo IA & objets connectés",
+        "description": "Application web PWA de suivi quotidien du poids (moyenne glissante 7j), bilans énergétiques BMR/TDEE, estimation calorique et macronutritionnelle par photo d'assiette (Gemini Vision + OpenFoodFacts), profil persistant et synchronisation bague RingConn Gen 3, Google Health Connect, Oura et balances Withings.",
+        "category": "Santé & Nutrition",
+        "icon": "activity",
+        "color": "emerald",
+        "vercel_url": "https://vital-track.vercel.app",
+        "github_url": "https://github.com/TheBigBad31/VitalTrack",
+        "is_private": true,
+        "language": "Python",
+        "stack": ["FastAPI", "Python 3.11", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "RingConn Gen 3", "Google Health Connect", "Withings API", "Oura API"],
+        "features": [
+          "Suivi quotidien du poids (moyenne glissante 7j) & bilans énergétiques BMR/TDEE",
+          "Estimateur de calories & macros par photo d'assiette (Gemini Vision + OpenFoodFacts)",
+          "Profil complet persistant (sauvegarde/restauration JSON 1-clic + auto-sync navigateur)",
+          "Assistant de connexion & webhooks pour bague RingConn Gen 3, Google Health Connect, Oura Ring et balances Withings",
+          "Architecture PWA responsive Mobile-First déployée sur Vercel Serverless avec fallback de données garanti"
+        ],
+        "latest_summary": "Stage 6 : Profil complet persistant, export/import JSON, intégration native RingConn Gen 3, Google Health Connect et webhooks santé universels.",
+        "last_updated": "2026-10-18T21:21:05Z",
+        "commits": [
+          {
+            "sha": "0cf2b14",
+            "full_sha": "0cf2b14313f6c790463ad6d119f270f05c2360f5",
+            "message": "feat(stage-6): profil persistant, export/import JSON, centre d'integration RingConn Gen 3 et webhooks de sante",
+            "author": "TheBigBad31",
+            "date": "2026-10-18T21:21:05Z",
+            "url": "https://github.com/TheBigBad31/VitalTrack/commit/0cf2b14313f6c790463ad6d119f270f05c2360f5"
+          },
+          {
+            "sha": "f79f1fd",
+            "full_sha": "f79f1fdcdfff9b2339736ff8899fe0326ec75fa1",
+            "message": "feat(devices): ajout bague RingConn Gen 3, profil utilisateur et assistant de connexion (BALI-16)",
+            "author": "TheBigBad31",
+            "date": "2026-10-18T19:12:52Z",
+            "url": "https://github.com/TheBigBad31/VitalTrack/commit/f79f1fdcdfff9b2339736ff8899fe0326ec75fa1"
+          },
+          {
+            "sha": "f73ea85",
+            "full_sha": "f73ea85f9bd9b78e7e04de85160e201c25fc57a5",
+            "message": "feat(ci-cd): Workflows GitHub Actions, endpoints Vercel Serverless et documentation 1-clic (BALI-16)",
+            "author": "TheBigBad31",
+            "date": "2026-10-18T17:00:21Z",
+            "url": "https://github.com/TheBigBad31/VitalTrack/commit/f73ea85f9bd9b78e7e04de85160e201c25fc57a5"
+          }
+        ]
       }
     ];
 
@@ -531,7 +583,8 @@
       'trending-up': 'trending-up',
       'brain': 'brain',
       'rocket': 'rocket',
-      'shield': 'shield'
+      'shield': 'shield',
+      'activity': 'activity'
     };
 
     const colorClasses = {
