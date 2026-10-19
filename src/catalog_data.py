@@ -235,7 +235,7 @@ DEFAULT_APPS_CATALOG: List[Dict[str, Any]] = [
     "category": "Santé & Nutrition",
     "icon": "activity",
     "color": "emerald",
-    "vercel_url": "https://vital-track.vercel.app",
+    "vercel_url": "https://vital-track-one.vercel.app",
     "github_url": "https://github.com/TheBigBad31/VitalTrack",
     "is_private": True,
     "language": "Python",
