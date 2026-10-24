@@ -11,7 +11,16 @@
     "github_url": "https://github.com/TheBigBad31/CryptoPlatform",
     "is_private": true,
     "language": "Python",
-    "stack": ["FastAPI", "Python 3.11", "Google Sign-In SSO", "Kraken API", "Nexo API", "WhatsApp API", "Chart.js", "Tailwind CSS"],
+    "stack": [
+      "FastAPI",
+      "Python 3.11",
+      "Google Sign-In SSO",
+      "Kraken API",
+      "Nexo API",
+      "WhatsApp API",
+      "Chart.js",
+      "Tailwind CSS"
+    ],
     "features": [
       "Authentification unifiée Google Sign-In & SSO depuis AppHub",
       "Connecteurs modulaires CEX & CeFi (Kraken read-only, Nexo Pro, mode démo sans clés)",
@@ -61,7 +70,14 @@
     "github_url": "https://github.com/TheBigBad31/CogniStim",
     "is_private": true,
     "language": "TypeScript",
-    "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Drizzle ORM", "PostgreSQL"],
+    "stack": [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "PostgreSQL"
+    ],
     "features": [
       "Générateur d'exercices cognitifs paramétrables (Chiffrement, Lettres manquantes, Sudoku à symboles)",
       "Labyrinthes de lettres et grilles de mots avec réglage fin de linéarité et difficulté",
@@ -102,7 +118,14 @@
     "github_url": "https://github.com/TheBigBad31/GalaxyDefenders",
     "is_private": false,
     "language": "TypeScript",
-    "stack": ["React", "HTML5 Canvas", "Vite", "TypeScript", "Tailwind CSS", "Gemini AI"],
+    "stack": [
+      "React",
+      "HTML5 Canvas",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemini AI"
+    ],
     "features": [
       "Moteur de jeu 60 FPS Canvas avec gestion physique des inclinaisons et tirs multi-canons",
       "Armada ennemie complète avec 12 visuels HD PNG transparents (moteur Cyber-Militaire Style 2)",
@@ -167,7 +190,13 @@
     "github_url": "https://github.com/TheBigBad31/ElvishScout",
     "is_private": true,
     "language": "TypeScript",
-    "stack": ["React", "Vite", "TypeScript", "Tailwind CSS", "Google GenAI API"],
+    "stack": [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google GenAI API"
+    ],
     "features": [
       "Mécaniques tactiques de démineur revisitées avec système de points de vie et d'armure",
       "Artefacts et plantes légendaires (Fleurs de Gaïa, Racines de Mandragore à déterrer)",
@@ -232,7 +261,19 @@
     "github_url": "https://github.com/TheBigBad31/VitalTrack",
     "is_private": true,
     "language": "Python",
-    "stack": ["FastAPI", "Python 3.11", "Google Sign-In SSO", "Gemini Vision", "OpenFoodFacts API", "Chart.js", "Tailwind CSS", "RingConn Gen 3", "Google Health Connect", "Withings API", "Oura API"],
+    "stack": [
+      "FastAPI",
+      "Python 3.11",
+      "Google Sign-In SSO",
+      "Gemini Vision",
+      "OpenFoodFacts API",
+      "Chart.js",
+      "Tailwind CSS",
+      "RingConn Gen 3",
+      "Google Health Connect",
+      "Withings API",
+      "Oura API"
+    ],
     "features": [
       "Authentification unifiée Google Sign-In & SSO depuis AppHub",
       "Suivi quotidien du poids (moyenne glissante 7j) & bilans énergétiques BMR/TDEE",
@@ -269,7 +310,63 @@
         "url": "https://github.com/TheBigBad31/VitalTrack/commit/f73ea85f9bd9b78e7e04de85160e201c25fc57a5"
       }
     ]
+  },
+  {
+    "id": "epicycleslab",
+    "name": "EpicyclesLab",
+    "tagline": "Atelier interactif d'épicycles & séries de Fourier (60 fps PWA)",
+    "description": "Application web interactive PWA Mobile-First inspirée des cercles tournants de Fourier complexes (Transcendental Space / 3Blue1Brown). Manipulation d'épicycles à 60 fps, synthèse directe en mode Atelier et analyse inverse de contours (DFT/FFT) en Web Worker.",
+    "category": "Maths & Animation",
+    "icon": "disc",
+    "color": "cyan",
+    "vercel_url": "https://epicycles-lab.vercel.app",
+    "github_url": "https://github.com/TheBigBad31/EpicyclesLab",
+    "is_private": true,
+    "language": "TypeScript",
+    "stack": [
+      "TypeScript",
+      "Vite",
+      "HTML5 Canvas",
+      "Web Workers",
+      "Fourier DFT/FFT",
+      "Vitest",
+      "PWA"
+    ],
+    "features": [
+      "Mode Atelier de cercles : réglage dynamique des rayons, fréquences, phases et sens de rotation",
+      "Mode Dessin Inverse par DFT/FFT : décomposition automatique en Web Worker dédié",
+      "Modèle π de référence, formes géométriques et import de contour SVG vectoriel",
+      "Rendu fluide 60 fps sur Canvas 2D avec caméra orbitale, zoom/pan et suivi de pointe",
+      "Export haute définition PNG/SVG/JSON & partage direct de configurations par lien URL",
+      "3 thèmes visuels soignés (Cosmos Neon, Blueprint Mathématique, Papier & Encre) et raccourcis studio"
+    ],
+    "latest_summary": "Stage 5 : Mise en place du pipeline CI/CD GitHub Actions, déploiement Vercel Serverless et référencement officiel dans AppHub.",
+    "last_updated": "2026-10-24T13:21:12Z",
+    "commits": [
+      {
+        "sha": "014836f",
+        "full_sha": "014836ff33b5b263aa2b133f5fe632185abd8424",
+        "message": "ci(devops): pipeline GitHub Actions CI et configuration Vercel SPA/PWA",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T13:21:12+02:00",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/014836ff33b5b263aa2b133f5fe632185abd8424"
+      },
+      {
+        "sha": "6e93a18",
+        "full_sha": "6e93a1814f6c0852d074698ffb72131e4e294e80",
+        "message": "feat(ui): stage 4 - thèmes configurables, ergonomie mobile-first, desktop studio & PWA",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T13:11:55+02:00",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/6e93a1814f6c0852d074698ffb72131e4e294e80"
+      },
+      {
+        "sha": "36ab865",
+        "full_sha": "36ab865882fc7da1ff24e7fdcea7ae0acb43ff93",
+        "message": "feat(inverse, worker, share): mode dessin inverse, worker FFT, indicateurs RMSE et export/partage URL",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T13:02:35+02:00",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/36ab865882fc7da1ff24e7fdcea7ae0acb43ff93"
+      }
+    ]
   }
 ]
-
-

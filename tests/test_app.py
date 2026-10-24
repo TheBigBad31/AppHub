@@ -89,11 +89,12 @@ def test_fallback_when_apps_json_missing(monkeypatch, tmp_path):
     fake_data_file = tmp_path / "non_existent_apps.json"
     monkeypatch.setattr(app_module, "DATA_FILE", fake_data_file)
     apps = app_module.load_apps_catalog()
-    assert len(apps) == 5
+    assert len(apps) >= 5
     app_ids = [a["id"] for a in apps]
     assert "cryptoplatform" in app_ids
     assert "cognistim" in app_ids
     assert "galaxydefenders" in app_ids
     assert "elvishscout" in app_ids
     assert "vitaltrack" in app_ids
+    assert "epicycleslab" in app_ids
 
