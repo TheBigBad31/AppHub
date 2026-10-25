@@ -77,6 +77,35 @@ def get_repo_commits(repo_owner: str, repo_name: str, token: Optional[str] = Non
         return []
 
 
+def format_python_literal(obj: Any, indent: int = 2, level: int = 0) -> str:
+    """Formate une structure de données Python en code Python valide (True, False, None)."""
+    ind = " " * (level * indent)
+    ind_next = " " * ((level + 1) * indent)
+    if isinstance(obj, dict):
+        if not obj:
+            return "{}"
+        items = []
+        for k, v in obj.items():
+            key_repr = json.dumps(k, ensure_ascii=False)
+            items.append(f"{ind_next}{key_repr}: {format_python_literal(v, indent, level + 1)}")
+        return "{\n" + ",\n".join(items) + "\n" + ind + "}"
+    elif isinstance(obj, list):
+        if not obj:
+            return "[]"
+        items = [f"{ind_next}{format_python_literal(x, indent, level + 1)}" for x in obj]
+        return "[\n" + ",\n".join(items) + "\n" + ind + "]"
+    elif isinstance(obj, bool):
+        return "True" if obj else "False"
+    elif obj is None:
+        return "None"
+    elif isinstance(obj, (int, float)):
+        return str(obj)
+    elif isinstance(obj, str):
+        return json.dumps(obj, ensure_ascii=False)
+    else:
+        return repr(obj)
+
+
 def sync_catalog(output_path: Path = APPS_DATA_FILE) -> List[Dict[str, Any]]:
     """Synchronise les métadonnées et commits récents des applications répertoriées."""
     token = get_git_credential_token()
@@ -109,13 +138,50 @@ def sync_catalog(output_path: Path = APPS_DATA_FILE) -> List[Dict[str, Any]]:
     # Met également à jour src/catalog_data.py pour garantir la parité du fallback en mémoire
     catalog_py_path = Path(__file__).resolve().parent / "catalog_data.py"
     try:
-        content_py = '"""\nCatalogue statique par défaut des applications pour AppHub.\nSert de source de données infaillible et de fallback en mémoire\ndans les environnements serverless Vercel lorsque le fichier apps.json n\'est pas bundlé.\n"""\nfrom typing import List, Dict, Any\n\nDEFAULT_APPS_CATALOG: List[Dict[str, Any]] = ' + json.dumps(updated_apps, indent=2, ensure_ascii=False) + '\n'
+        content_py = (
+            '"""\nCatalogue statique par défaut des applications pour AppHub.\n'
+            'Sert de source de données infaillible et de fallback en mémoire\n'
+            'dans les environnements serverless Vercel lorsque le fichier apps.json n\'est pas bundlé.\n"""\n'
+            'from typing import List, Dict, Any\n\n'
+            'DEFAULT_APPS_CATALOG: List[Dict[str, Any]] = '
+            + format_python_literal(updated_apps, indent=2, level=0)
+            + '\n'
+        )
         with open(catalog_py_path, "w", encoding="utf-8") as f:
             f.write(content_py)
     except Exception as e:
         print(f"Avertissement: Impossible d'écrire {catalog_py_path}: {e}")
 
-    print(f"Catalogue synchronisé avec succès ({len(updated_apps)} applications) dans {output_path} et {catalog_py_path}")
+    # Synchronise également le fallback embarqué dans index.html, static/index.html et public/index.html
+    root_dir = Path(__file__).resolve().parent.parent
+    html_files = [
+        root_dir / "index.html",
+        root_dir / "static" / "index.html",
+        root_dir / "public" / "index.html",
+    ]
+    apps_json_str = json.dumps(updated_apps, indent=4, ensure_ascii=False)
+    for html_path in html_files:
+        if html_path.exists():
+            try:
+                with open(html_path, "r", encoding="utf-8") as f:
+                    html_content = f.read()
+                marker_start = "const FALLBACK_APPS_DATA = "
+                marker_end = "let appsData = [...FALLBACK_APPS_DATA];"
+                start_idx = html_content.find(marker_start)
+                end_idx = html_content.find(marker_end)
+                if start_idx != -1 and end_idx != -1:
+                    new_html = (
+                        html_content[:start_idx + len(marker_start)]
+                        + apps_json_str
+                        + ";\n\n    "
+                        + html_content[end_idx:]
+                    )
+                    with open(html_path, "w", encoding="utf-8") as f:
+                        f.write(new_html)
+            except Exception as e:
+                print(f"Avertissement: Impossible de synchroniser {html_path}: {e}")
+
+    print(f"Catalogue synchronisé avec succès ({len(updated_apps)} applications) dans {output_path}, {catalog_py_path} et les fichiers index.html")
     return updated_apps
 
 

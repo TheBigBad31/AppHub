@@ -30,8 +30,24 @@
       "Suivi des rendements passifs (Staking Kraken & Fixed Terms Nexo, calcul APY en direct)"
     ],
     "latest_summary": "Intégration du calibrage des alertes, profils de dashboard 1-clic, pipelines CI/CD et déploiement Vercel Serverless.",
-    "last_updated": "2026-10-18T13:16:09Z",
+    "last_updated": "2026-10-19T10:04:43Z",
     "commits": [
+      {
+        "sha": "0fe84cf",
+        "full_sha": "0fe84cf7d9958e57b8e1344f34206cbcdfdeab66",
+        "message": "feat(auth): ecran Google Choisir un compte, resilience au clic et fallback localStorage",
+        "author": "TheBigBad31",
+        "date": "2026-10-19T10:04:43Z",
+        "url": "https://github.com/TheBigBad31/CryptoPlatform/commit/0fe84cf7d9958e57b8e1344f34206cbcdfdeab66"
+      },
+      {
+        "sha": "0b4427e",
+        "full_sha": "0b4427e2c110806a61647e414fb108b474a59216",
+        "message": "feat(auth): ajout de l'authentification Google Sign-In (OAuth2 / GIS) et persistance des preferences",
+        "author": "TheBigBad31",
+        "date": "2026-10-19T07:31:55Z",
+        "url": "https://github.com/TheBigBad31/CryptoPlatform/commit/0b4427e2c110806a61647e414fb108b474a59216"
+      },
       {
         "sha": "75f9dbc",
         "full_sha": "75f9dbc910e183ab074127f4f0120dd62de7d3b1",
@@ -175,6 +191,14 @@
         "author": "TheBigBad31",
         "date": "2026-08-02T17:43:36Z",
         "url": "https://github.com/TheBigBad31/GalaxyDefenders/commit/dd2a69c85cc4b7cff740d65471ecd7f48fbe852c"
+      },
+      {
+        "sha": "d594a5e",
+        "full_sha": "d594a5e52409d8ca4013c4dc15a41b143027857f",
+        "message": "Mise a jour des visuels HD pour Bolton, Jeff et Micka en vue 2D stricte Top-Down",
+        "author": "TheBigBad31",
+        "date": "2026-08-02T15:38:47Z",
+        "url": "https://github.com/TheBigBad31/GalaxyDefenders/commit/d594a5e52409d8ca4013c4dc15a41b143027857f"
       }
     ]
   },
@@ -246,6 +270,14 @@
         "author": "TheBigBad31",
         "date": "2026-07-30T17:39:32Z",
         "url": "https://github.com/TheBigBad31/ElvishScout/commit/12b757ca6f7f1593a0c434379434e60fc2cd7954"
+      },
+      {
+        "sha": "e23c9c1",
+        "full_sha": "e23c9c1510ed21ac2e97859468d2e18c1d3c8f49",
+        "message": "Web fullscreen API",
+        "author": "TheBigBad31",
+        "date": "2026-07-30T16:10:36Z",
+        "url": "https://github.com/TheBigBad31/ElvishScout/commit/e23c9c1510ed21ac2e97859468d2e18c1d3c8f49"
       }
     ]
   },
@@ -283,31 +315,55 @@
       "Architecture PWA responsive Mobile-First déployée sur Vercel Serverless avec fallback de données garanti"
     ],
     "latest_summary": "Stage 6 : Profil complet persistant, export/import JSON, intégration native RingConn Gen 3, Google Health Connect et webhooks santé universels.",
-    "last_updated": "2026-10-18T21:21:05Z",
+    "last_updated": "2026-10-23T11:54:13Z",
     "commits": [
       {
-        "sha": "0cf2b14",
-        "full_sha": "0cf2b14313f6c790463ad6d119f270f05c2360f5",
-        "message": "feat(stage-6): profil persistant, export/import JSON, centre d'integration RingConn Gen 3 et webhooks de sante",
+        "sha": "51b31a1",
+        "full_sha": "51b31a1e4a2deb61d4d91b9d356ede547940c40d",
+        "message": "fix(ui): corriger quote non echappee dans le rendu du tableau de calories qui bloquait les scripts de menu",
         "author": "TheBigBad31",
-        "date": "2026-10-18T21:21:05Z",
-        "url": "https://github.com/TheBigBad31/VitalTrack/commit/0cf2b14313f6c790463ad6d119f270f05c2360f5"
+        "date": "2026-10-23T11:54:13Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/51b31a1e4a2deb61d4d91b9d356ede547940c40d"
       },
       {
-        "sha": "f79f1fd",
-        "full_sha": "f79f1fdcdfff9b2339736ff8899fe0326ec75fa1",
-        "message": "feat(devices): ajout bague RingConn Gen 3, profil utilisateur et assistant de connexion (BALI-16)",
+        "sha": "e3a0927",
+        "full_sha": "e3a09275a876f7a2e3fb0b42e190ca0f56d20d00",
+        "message": "feat(ui): allegement visuel catalogue (mosaique dense, icones plats/aliments et bienfaits) et liaison repas au tableau de calories journalieres (BALI-36)",
         "author": "TheBigBad31",
-        "date": "2026-10-18T19:12:52Z",
-        "url": "https://github.com/TheBigBad31/VitalTrack/commit/f79f1fdcdfff9b2339736ff8899fe0326ec75fa1"
+        "date": "2026-10-23T11:46:52Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/e3a09275a876f7a2e3fb0b42e190ca0f56d20d00"
       },
       {
-        "sha": "f73ea85",
-        "full_sha": "f73ea85f9bd9b78e7e04de85160e201c25fc57a5",
-        "message": "feat(ci-cd): Workflows GitHub Actions, endpoints Vercel Serverless et documentation 1-clic (BALI-16)",
+        "sha": "f7f13c3",
+        "full_sha": "f7f13c3c63e04104c2e6259e298db7c40291abb2",
+        "message": "feat(catalog): composition d'un plat par ingredients existants avec ajustement des quantites et precalcul direct (BALI-35)",
         "author": "TheBigBad31",
-        "date": "2026-10-18T17:00:21Z",
-        "url": "https://github.com/TheBigBad31/VitalTrack/commit/f73ea85f9bd9b78e7e04de85160e201c25fc57a5"
+        "date": "2026-10-23T10:21:28Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/f7f13c3c63e04104c2e6259e298db7c40291abb2"
+      },
+      {
+        "sha": "4d3bba6",
+        "full_sha": "4d3bba6f8e8fe5ef08c74f33b0a686354aee5b4c",
+        "message": "fix(catalog): fix ReferenceError in renderCatalogItems and restore display of created foods",
+        "author": "TheBigBad31",
+        "date": "2026-10-22T19:46:31Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/4d3bba6f8e8fe5ef08c74f33b0a686354aee5b4c"
+      },
+      {
+        "sha": "583489f",
+        "full_sha": "583489ff39cb9d9f0fd247e74653f8c1af0f760b",
+        "message": "fix(vercel): inline app.js in index.html and fix static routing in vercel.json",
+        "author": "TheBigBad31",
+        "date": "2026-10-22T19:17:25Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/583489ff39cb9d9f0fd247e74653f8c1af0f760b"
+      },
+      {
+        "sha": "3a34c32",
+        "full_sha": "3a34c329379f8baa28f7aa6ae70302665ae1e4e0",
+        "message": "fix(ui): attach explicit addEventListener navigation and effective view toggling (BALI-34)",
+        "author": "TheBigBad31",
+        "date": "2026-10-22T19:00:54Z",
+        "url": "https://github.com/TheBigBad31/VitalTrack/commit/3a34c329379f8baa28f7aa6ae70302665ae1e4e0"
       }
     ]
   },
@@ -341,14 +397,22 @@
       "3 thèmes visuels soignés (Cosmos Neon, Blueprint Mathématique, Papier & Encre) et raccourcis studio"
     ],
     "latest_summary": "Stage 5 : Mise en place du pipeline CI/CD GitHub Actions, déploiement Vercel Serverless et référencement officiel dans AppHub.",
-    "last_updated": "2026-10-24T13:21:12Z",
+    "last_updated": "2026-10-24T11:35:13Z",
     "commits": [
+      {
+        "sha": "3602582",
+        "full_sha": "3602582fadf1554725d7f50e52da545d9c331e2d",
+        "message": "BALI-51: Add README documentation and inverse drawing RMSE threshold tests",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T11:35:13Z",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/3602582fadf1554725d7f50e52da545d9c331e2d"
+      },
       {
         "sha": "014836f",
         "full_sha": "014836ff33b5b263aa2b133f5fe632185abd8424",
         "message": "ci(devops): pipeline GitHub Actions CI et configuration Vercel SPA/PWA",
         "author": "TheBigBad31",
-        "date": "2026-10-24T13:21:12+02:00",
+        "date": "2026-10-24T11:21:12Z",
         "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/014836ff33b5b263aa2b133f5fe632185abd8424"
       },
       {
@@ -356,7 +420,7 @@
         "full_sha": "6e93a1814f6c0852d074698ffb72131e4e294e80",
         "message": "feat(ui): stage 4 - thèmes configurables, ergonomie mobile-first, desktop studio & PWA",
         "author": "TheBigBad31",
-        "date": "2026-10-24T13:11:55+02:00",
+        "date": "2026-10-24T11:11:55Z",
         "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/6e93a1814f6c0852d074698ffb72131e4e294e80"
       },
       {
@@ -364,8 +428,24 @@
         "full_sha": "36ab865882fc7da1ff24e7fdcea7ae0acb43ff93",
         "message": "feat(inverse, worker, share): mode dessin inverse, worker FFT, indicateurs RMSE et export/partage URL",
         "author": "TheBigBad31",
-        "date": "2026-10-24T13:02:35+02:00",
+        "date": "2026-10-24T11:02:35Z",
         "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/36ab865882fc7da1ff24e7fdcea7ae0acb43ff93"
+      },
+      {
+        "sha": "02a1d83",
+        "full_sha": "02a1d831549abf8e706f0bee6f81b84f35672911",
+        "message": "feat(render, workshop): moteur de rendu 60 fps, caméra interactive zoom/suivi, mode atelier et exports PNG/SVG",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T10:52:51Z",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/02a1d831549abf8e706f0bee6f81b84f35672911"
+      },
+      {
+        "sha": "9faeb08",
+        "full_sha": "9faeb08165a79cabaa12757dcffa8493e9467756",
+        "message": "feat(math): socle TypeScript/Vite/Vitest et moteur mathématique pur (DFT/FFT, rééchantillonnage, Gibbs, presets)",
+        "author": "TheBigBad31",
+        "date": "2026-10-24T10:45:00Z",
+        "url": "https://github.com/TheBigBad31/EpicyclesLab/commit/9faeb08165a79cabaa12757dcffa8493e9467756"
       }
     ]
   }
